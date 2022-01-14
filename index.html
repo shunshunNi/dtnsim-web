@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <script src="libraries/p5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>DTNシミュレータ</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <main></main>
+      <!-- show timer-->
+      <div class="other">
+        <div id="timer"></div>
+        <form>
+          <ul>
+            <li>
+              <label for="agents_number">エージェント数</label>
+              <input
+                type="number"
+                name="agents_number"
+                id="agents_number"
+                min="1"
+                value="10"
+              />
+            </li>
+            <li>
+              <label for="infected_number">初期人数</label>
+              <input
+                type="number"
+                name="infected_number"
+                id="infected_number"
+                min="1"
+                value="1"
+              />
+            </li>
+            <li>
+              <!-- agent size input -->
+              <label for="agent_size">エージェントサイズ</label>
+              <input
+                type="number"
+                name="agent_size"
+                id="agent_size"
+                min="1"
+                value="50"
+              />
+            </li>
+            <li>
+              <!-- reset button -->
+              <button type="button" id="reset">リセット</button>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="sketch.js"></script>
+</html>

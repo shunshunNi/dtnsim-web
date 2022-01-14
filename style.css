@@ -1,0 +1,24 @@
+#timer {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100%;
+  margin: 0 auto;
+}
+/* wrapper divide 2 contents verticaly */
+.wrapper {
+  display: flex;
+}
+
+.wrapper > div {
+  width: 50%;
+  display: inline;
+}
+
+ul li {
+  list-style: none;
+}
+label {
+  width: 150px;
+  float: left;
+}
