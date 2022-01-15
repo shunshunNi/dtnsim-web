@@ -36,11 +36,14 @@ class Agent {
   warp() {
     if (this.x < 0) {
       this.x = canvas_size;
-    } else if (this.x > canvas_size) {
+    }
+    if (this.x > canvas_size) {
       this.x = 0;
-    } else if (this.y < 0) {
+    }
+    if (this.y < 0) {
       this.y = canvas_size;
-    } else if (this.y > canvas_size) {
+    }
+    if (this.y > canvas_size) {
       this.y = 0;
     }
   }
@@ -64,10 +67,15 @@ function draw() {
     // stop timer
     clearInterval(timer_interval);
   }
-  // draw agents as circles
   background(51);
   for (let i = 0; i < list_of_agents.length; i++) {
     const agent = list_of_agents[i];
+    // move agents
+    agent.set_speed();
+    agent.move();
+    agent.warp();
+
+    // draw agents as circles
     if (agent.is_infected) {
       fill(255, 0, 0);
     } else {
@@ -75,19 +83,10 @@ function draw() {
     }
     ellipse(agent.x, agent.y, agent_size, agent_size);
   }
-  // move agents
+
+  // check if agents are in contact
   for (let i = 0; i < list_of_agents.length; i++) {
     const agent = list_of_agents[i];
-    agent.move();
-    // agent should random walk
-    if (Math.random() < 0.5) {
-      agent.set_speed();
-    }
-    // warp the agent if it is out of the canvas
-    if (!agent.is_in_canvas()) {
-      agent.warp();
-    }
-    // check if agent is infected
     for (let j = 0; j < list_of_agents.length; j++) {
       if (i != j) {
         const other_agent = list_of_agents[j];
